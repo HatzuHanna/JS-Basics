@@ -1,1 +1,1 @@
-//dadd
+//scripting basics
