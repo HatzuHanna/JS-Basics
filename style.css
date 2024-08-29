@@ -139,22 +139,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: linear-gradient(-45deg, #52eea8, #e489ac, #a4efa6, #23d5ab);
+  background: linear-gradient(-45deg, #52eea8, #ed88af, #a4efa6, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
 }
 
 main {
+  position: relative;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: max-content;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
-  transition: all 800ms;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 100%;
 }
 
 @keyframes gradient {
@@ -170,8 +172,8 @@ main {
 }
 
 .disc {
-  margin: auto;
   position: relative;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,9 +189,9 @@ main {
   height: 500px;
   color: rgb(0, 0, 0);
   border-radius: 100%;
-  animation: rotate 2.5s linear infinite;
-  animation-play-state: initial;
-  transition: all 800ms;
+  animation: rotate 5s linear infinite;
+  animation-play-state: paused;
+  transition: all 1s;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: lighter;
 }
@@ -284,8 +286,8 @@ main {
 .disc::before {
   content: "";
   position: absolute;
-  width: 45%;
-  height: 45%;
+  width: 40%;
+  height: 40%;
   background: rgb(0, 0, 0);
   background: radial-gradient(
     circle,
@@ -298,22 +300,100 @@ main {
   border-radius: 100%;
 }
 
-.disc:not(:hover) {
-  animation-play-state: paused;
+.github {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -6.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  z-index: 10;
+  visibility: hidden;
+  border-radius: 16px;
+  font-family: inter;
+  text-decoration: none;
+  background-color: #000000;
+  font-size: 1.2em;
+  overflow: visible;
+  transition: all 5ms ease-in-out;
+  padding-left: 0;
 }
 
-.disc:hover {
-  scale: 1.1;
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.sideb {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  height: 100%;
+  /* background-color: red; */
+  color: white;
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  width: 100px;
+  height: 100%;
+  background-color: aliceblue;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: hsla(70, 100%, 85%, 0.875);
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+main:hover > .github {
+  background-color: hsla(0, 1%, 35%, 0.274);
+  visibility: visible;
+  text-decoration: none;
+  box-shadow: inset 0px 0px 20px 2px rgb(155, 155, 155);
+  transition: all 10ms;
+}
+
+main:hover > .disc {
+  visibility: visible;
+  animation-play-state: running;
+  scale: 3;
+  transition: all 1.5s;
 }
 
 .label {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(254, 255, 94);
   border-radius: 100%;
   width: 25%;
   height: 25%;
@@ -324,72 +404,113 @@ main {
   font-stretch: ultra-expanded;
   text-decoration: none;
   color: white;
-  border: 5px solid rgb(30, 45, 38);
-  border-style: inset 20px;
   z-index: 8;
+  overflow: hidden;
+}
+.label::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 2.5px solid rgb(233, 238, 72);
+  border-radius: 100%;
 }
 
 .label::before {
   content: "";
-  position: absolute;
-  width: 10%;
-  height: 10%;
+  width: 30%;
+  height: 30%;
+  background-color: rgb(233, 238, 73);
+  z-index: 6;
   border-radius: 100%;
-  background-color: rgb(88, 88, 88);
-  z-index: 4;
 }
 
-.label::after {
+.top {
+  position: absolute;
+  content: "";
+  height: 10%;
+  width: 10%;
+  background-color: black;
+  z-index: 100;
+  border-radius: 100%;
+}
+.hatzu {
   content: "";
   position: absolute;
-  width: 5%;
-  height: 5%;
-  border-radius: 100%;
-  background-color: rgb(179, 179, 179);
-  z-index: 50;
+  /* background-color: #23d5ab; */
+  top: 8%;
+  text-align: justify;
+  text-align-last: center;
+  font-size: 0.4em;
+  color: #000000;
+  font-family: inter;
+  font-weight: 800;
+  text-shadow: -1px 1px 0 #ffffff;
 }
-
-span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 55%;
-  z-index: 70;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  color: rgb(88, 88, 88);
-}
-
-span::before {
-  content: "Side A";
-  left: 0;
-  top: 300%;
+.stereo {
+  box-sizing: border-box;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+  width: 110%;
+  height: 35%;
+  background-color: transparent;
+  z-index: 800;
+  border: 1px solid rgb(0, 0, 0);
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  color: rgb(46, 46, 46);
-  font-size: 1em;
+  justify-content: space-between;
 }
 
-span::after {
-  content: "@HatzuHanna";
-  left: 0;
-  bottom: 300%;
-  position: absolute;
-  width: 100%;
+.stereotitle,
+.rpm {
+  box-sizing: border-box;
   height: 100%;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(46, 46, 46);
-  font-size: 1em;
+  color: rgb(0, 0, 0);
+  font-family: inter;
+  font-weight: 800;
+}
+
+.stereotitle {
+  width: 40%;
+  color: rgb(0, 0, 0);
+  font-size: 0.4rem;
+  z-index: 90;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #a4efa6; */
+  padding-left: 2.5px;
+}
+
+.rpm {
+  width: 40%;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  z-index: 90;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #a4efa6; */
+  padding-right: 2.5px;
+}
+
+.rpm::after {
+  font-family: inter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "SIDE A";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  color: black;
+  bottom: -100%;
+  font-size: 0.6em;
+  /* background-color: #000000; */
 }
 
 @keyframes rotate {
@@ -409,19 +530,47 @@ span::after {
     height: 350px;
   }
 
-  .disc span {
-    font-size: 10px;
+  .github {
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    position: absolute;
+    top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    z-index: 10;
+    visibility: hidden;
+    border-radius: 16px;
+    font-family: inter;
+    text-decoration: none;
+    background-color: #000000;
+    font-size: 1.2em;
+    overflow: visible;
+    transition: all 5ms ease-in-out;
+  }
+  main:hover > .disc {
+    visibility: visible;
+    animation-play-state: running;
+    scale: 1.1;
+    transition: all 1.5s;
   }
 
-  .disc:not(:hover) {
-    animation-play-state: initial;
+  .sideb {
+    color: #000000;
   }
 
-  span::after {
+  #l1::after {
     bottom: 15px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  span::before {
+  #l1::before {
     top: 22.5px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
