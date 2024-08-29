@@ -137,12 +137,10 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transition: all 800ms;
+  justify-items: center;
   overflow: hidden;
-  flex-wrap: wrap;
   background: linear-gradient(-45deg, #52eea8, #e489ac, #a4efa6, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
@@ -150,14 +148,13 @@ body {
 
 main {
   box-sizing: border-box;
-  height: 100%;
   width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   transition: all 800ms;
-  flex-wrap: wrap;
 }
 
 @keyframes gradient {
@@ -173,6 +170,7 @@ main {
 }
 
 .disc {
+  margin: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -405,7 +403,7 @@ span::after {
 
 /* Media */
 
-@media (max-width: 500px) {
+@media (max-width: 500px), (max-height: 500px) {
   .disc {
     width: 350px;
     height: 350px;
