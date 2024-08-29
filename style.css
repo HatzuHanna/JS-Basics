@@ -130,7 +130,7 @@ body {
   background-color: hsl(160, 82%, 94%);
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -141,7 +141,7 @@ main {
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   );
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -391,7 +391,7 @@ span::after {
 
 /* Media */
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
   .disc {
     width: 350px;
     height: 350px;
@@ -399,6 +399,10 @@ span::after {
 
   .disc span {
     font-size: 10px;
+  }
+
+  .disc:not(:hover) {
+    animation-play-state: initial;
   }
 
   span::after {
